@@ -1,0 +1,6 @@
+# Datos locales de PostgreSQL (creados por Docker)
+pgdata/
+
+# Archivos basura del sistema operativo
+.DS_Store
+Thumbs.db
