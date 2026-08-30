@@ -1,20 +1,18 @@
 version: '3.8'
 
 services:
-  # Servidor Web Apache + PHP
   web:
     image: php:8.2-apache
     container_name: cafeteria_web
     ports:
-      - "80:80"
+      - "8000:80"
     volumes:
       - .:/var/www/html/
     depends_on:
       - db
     command: >
-      bash -c "docker-php-ext-install pdo pdo_pgsql pgsql && apache2-foreground"
+      bash -c "apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pdo pdo_pgsql pgsql && apache2-foreground"
 
-  # Base de Datos PostgreSQL
   db:
     image: postgres:15
     container_name: cafeteria_db
@@ -26,6 +24,7 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   pgdata:
