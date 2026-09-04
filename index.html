@@ -31,6 +31,7 @@
         <a href="#leyes">Leyes destacadas</a>
         <a href="#tabla">Índice completo</a>
         <a href="#contacto">Opinión</a>
+        <a href="listar.php">Ver opiniones</a>
     </nav>
 
     <main>
@@ -216,6 +217,16 @@
 
                 <button type="submit">Enviar comentario</button>
             </form>
+        </section>
+
+        <!-- ====== SECCIÓN REGISTROS ====== -->
+        <!-- index.html es estático y no puede consultar la base de datos;
+             por eso esta sección solo enlaza a listar.php, que es el
+             archivo PHP encargado de hacer el SELECT y mostrar los datos -->
+        <section id="registros">
+            <h2>Consulta las opiniones</h2>
+            <p>Revisa lo que otros lectores han opinado sobre el libro.</p>
+            <a href="listar.php" class="boton">Ver registros almacenados</a>
         </section>
     </main>
 
